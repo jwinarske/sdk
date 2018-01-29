@@ -68,31 +68,31 @@ deps = {
       Var('chromium_git') + '/external/gyp.git' + Var("gyp_rev"),
 
   "sdk/third_party/dartdoc":
-      (Var("github_mirror") % "dartdoc") + Var("dartdoc_rev"),
+      "https://chromium.googlesource.com/external/github.com/dart-lang/dartdoc.git" + Var("dartdoc_rev"),
 
   "sdk/third_party/dart":
-      (Var("github_mirror") % "sdk") + Var("dart_rev"),
+      "https://chromium.googlesource.com/external/github.com/dart-lang/sdk.git" + Var("dart_rev"),
 
   "sdk/third_party/package_config":
-      (Var("github_mirror") % "package_config") + Var("package_config_tag"),
+      "https://chromium.googlesource.com/external/github.com/dart-lang/package_config.git" + Var("package_config_tag"),
 
   "sdk/third_party/args":
-      (Var("github_mirror") % "args") + Var("args_tag"),
+      "https://chromium.googlesource.com/external/github.com/dart-lang/args.git" + Var("args_tag"),
 
   "sdk/third_party/charcode":
-      (Var("github_mirror") % "charcode") + Var("charcode_tag"),
+      "https://chromium.googlesource.com/external/github.com/dart-lang/charcode.git" + Var("charcode_tag"),
 
   "sdk/third_party/path":
-      (Var("github_mirror") % "path") + Var("path_tag"),
+      "https://chromium.googlesource.com/external/github.com/dart-lang/path.git" + Var("path_tag"),
 
   "sdk/third_party/persistent":
-      (Var("github_url") % "polux/persistent") + Var("persistent_rev"),
+      "https://github.com/polux/persistent.git" + Var("persistent_rev"),
 
   "sdk/third_party/crypto":
-      (Var("github_mirror") % "crypto") + Var("crypto_rev"),
+      "https://chromium.googlesource.com/external/github.com/dart-lang/crypto.git" + Var("crypto_rev"),
 
   "sdk/third_party/lk/lk-upstream":
-      (Var("github_url") % "littlekernel/lk") + Var("lk_rev"),
+      "https://github.com/littlekernel/lk.git" + Var("lk_rev"),
 
   "sdk/third_party/isolate":
       "https://github.com/dart-lang/isolate.git" + Var("isolate_tag"),
@@ -105,12 +105,12 @@ deps = {
       + Var("instrumentation_client_rev"),
 
   "sdk/third_party/pub_semver":
-      (Var("github_mirror") % "pub_semver") + Var("pub_semver_tag"),
+      "https://chromium.googlesource.com/external/github.com/dart-lang/pub_semver.git" + Var("pub_semver_tag"),
 
   "sdk/third_party/collection":
-      (Var("github_mirror") % "collection") + Var("collection_tag"),
+      "https://chromium.googlesource.com/external/github.com/dart-lang/collection.git" + Var("collection_tag"),
 
-  "wiki": (Var("github_url") % "dartino/sdk.wiki"),
+  "wiki": "https://github.com/dartino/sdk.wiki",
 }
 
 # To include Mac deps on other OSes, add this to your .gclient file:
@@ -374,20 +374,20 @@ hooks = [
                 '-s', 'buildtools/mac/clang-format.sha1',
     ],
   },
-  {
-    'name': 'clang_format_linux',
-    'pattern': '.',
-    'action': [ 'python',
-                'sdk/tools/not_on_arm.py',
-                'download_from_google_storage',
-                '-q',
-                '--no_resume',
-                '--platform=linux*',
-                '--no_auth',
-                '--bucket', 'chromium-clang-format',
-                '-s', 'buildtools/linux64/clang-format.sha1',
-    ],
-  },
+#  {
+#    'name': 'clang_format_linux',
+#    'pattern': '.',
+#    'action': [ 'python',
+#                'sdk/tools/not_on_arm.py',
+#                'download_from_google_storage',
+#                '-q',
+#                '--no_resume',
+#                '--platform=linux*',
+#                '--no_auth',
+#                '--bucket', 'chromium-clang-format',
+#                '-s', 'buildtools/linux64/clang-format.sha1',
+#    ],
+#  },
   {
     'name': 'mbedtls',
     'pattern': '.',
@@ -400,15 +400,15 @@ hooks = [
                 '-s', 'sdk/third_party/mbedtls/mbedtls.tar.gz.sha1',
     ],
   },
-  {
-    'name': 'lazy_update_clang',
-    'pattern': '.',
-    'action': [
-      'python',
-      'sdk/tools/clang_update.py',
-      '--revision=' + Var("clang_rev"),
-    ],
-  },
+#  {
+#    'name': 'lazy_update_clang',
+#    'pattern': '.',
+#    'action': [
+#      'python',
+#      'sdk/tools/clang_update.py',
+#      '--revision=' + Var("clang_rev"),
+#    ],
+#  },
   {
     'name': 'GYP',
     'pattern': '.',
@@ -420,3 +420,4 @@ hooks = [
     ],
   },
 ]
+
