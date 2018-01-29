@@ -60,8 +60,7 @@ vars = {
 deps = {
   # Clang format support.
   "buildtools":
-     Var('chromium_git') + '/chromium/buildtools.git' +
-     Var('buildtools_revision'),
+     "https://chromium.googlesource.com/chromium/buildtools.git" + Var('buildtools_revision'),
 
   # Stuff needed for GYP to run.
   "sdk/third_party/gyp":
