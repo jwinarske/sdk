@@ -65,7 +65,7 @@ deps = {
 
   # Stuff needed for GYP to run.
   "sdk/third_party/gyp":
-      Var('chromium_git') + '/external/gyp.git' + Var("gyp_rev"),
+      "https://chromium.googlesource.com/external/gyp.git" + Var("gyp_rev"),
 
   "sdk/third_party/dartdoc":
       "https://chromium.googlesource.com/external/github.com/dart-lang/dartdoc.git" + Var("dartdoc_rev"),
